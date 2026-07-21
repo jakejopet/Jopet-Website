@@ -1,0 +1,315 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>Credit Application — Jopet Group</title><meta name="description" content="Apply for a commercial credit account with Jopet — online credit application form.">
+<noscript><style>.reveal{opacity:1!important;transform:none!important}.step{display:block!important}</style></noscript>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css"><link rel="icon" href="assets/wing-orange.png">
+<style>
+.capp{max-width:860px;margin:0 auto}
+.stepper{display:flex;gap:10px;margin:0 0 30px;flex-wrap:wrap}
+.stepper .st{flex:1;min-width:150px;display:flex;align-items:center;gap:10px;padding:12px 14px;border:1px solid #e5ddd7;border-radius:12px;background:#fff;color:#8a7f78;font-weight:600;font-size:14px}
+.stepper .st .n{width:26px;height:26px;border-radius:50%;background:#efe7e1;color:#8a7f78;display:flex;align-items:center;justify-content:center;font-size:13px;flex-shrink:0}
+.stepper .st.on{border-color:#590E0E;color:#590E0E}
+.stepper .st.on .n{background:#590E0E;color:#fff}
+.stepper .st.done .n{background:#f2882f;color:#fff}
+.step{display:none}.step.active{display:block}
+fieldset{border:1px solid #ece5df;border-radius:14px;padding:22px 20px;margin:0 0 22px;min-width:0}
+legend{font-family:Archivo,sans-serif;font-weight:800;color:#590E0E;font-size:15px;letter-spacing:.02em;text-transform:uppercase;padding:0 8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px 18px}
+.grid3{display:grid;grid-template-columns:2fr 1fr 1fr;gap:14px 18px}
+@media(max-width:640px){.grid2,.grid3{grid-template-columns:1fr}}
+.field{margin:0 0 4px}
+.field label{display:block;font-size:13px;font-weight:600;color:#5c534d;margin:0 0 6px}
+.field input,.field select,.field textarea{width:100%;padding:11px 13px;border:1px solid #ddd3cc;border-radius:10px;font:inherit;font-size:15px;background:#fff;color:#2a2320;box-sizing:border-box}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:#590E0E;box-shadow:0 0 0 3px rgba(89,14,14,.08)}
+.field .req{color:#b00020}
+.field.bad input,.field.bad select{border-color:#b00020;background:#fdf3f4}
+.opts{display:flex;flex-wrap:wrap;gap:10px}
+.opts label{display:inline-flex;align-items:center;gap:8px;padding:9px 14px;border:1px solid #ddd3cc;border-radius:999px;font-size:14px;cursor:pointer;background:#fff;font-weight:500;color:#4a423d}
+.opts input{accent-color:#590E0E;margin:0}
+.opts label:has(input:checked){border-color:#590E0E;background:#590E0E;color:#fff}
+.hint{font-size:12.5px;color:#8a7f78;margin:8px 0 0}
+.subhead{font-weight:700;color:#590E0E;margin:6px 0 12px;font-size:14px}
+.addbtn{background:#fff;border:1px dashed #d3b4b4;color:#590E0E;border-radius:10px;padding:10px 16px;font:inherit;font-weight:600;cursor:pointer;font-size:14px}
+.addbtn:hover{background:#f7efef}
+.repeat{border-top:1px dashed #ece5df;padding-top:16px;margin-top:16px;position:relative}
+.repeat .rm{position:absolute;right:0;top:12px;background:none;border:none;color:#b00020;cursor:pointer;font-size:13px;font-weight:600}
+.terms{border:1px solid #ece5df;border-radius:14px;padding:20px 22px;max-height:340px;overflow:auto;background:#fbf7f4;font-size:14px;line-height:1.6;color:#3f3833}
+.terms h4{color:#590E0E;font-family:Archivo,sans-serif;margin:16px 0 6px;font-size:14px}
+.terms ol{padding-left:20px;margin:6px 0}.terms li{margin:5px 0}
+.agree{display:flex;gap:12px;align-items:flex-start;margin:20px 0 0;padding:16px;border:1px solid #ddd3cc;border-radius:12px;background:#fff}
+.agree input{margin-top:3px;width:18px;height:18px;flex-shrink:0}
+.agree.bad{border-color:#b00020;background:#fdf3f4}
+.navrow{display:flex;justify-content:space-between;gap:12px;margin-top:26px}
+.btn-back{background:#fff;border:1px solid #ddd3cc;color:#4a423d;border-radius:12px;padding:13px 24px;font:inherit;font-weight:600;cursor:pointer}
+.err{color:#b00020;font-size:13.5px;margin-top:12px;min-height:1px}
+</style>
+</head><body class=""><header id="hdr"><div class="container nav">
+<a class="brand" href="index.html"><img src="assets/logo-group.png" alt="Jopet"></a>
+<nav class="navlinks" id="navlinks"><a href="index.html" class="">Home</a><a href="about.html" class="">About</a><a href="services.html" class="">Services</a><a href="fleet.html" class="">Fleet</a><a href="dealerships.html" class="">Dealerships</a><a href="operations.html" class="">Operations</a><a href="png.html" class="png-link">PNG</a></nav>
+<div class="nav-cta"><a href="credit-application.html" class="btn btn-ghost">Credit Application</a><a href="contact.html" class="btn btn-primary">Get in touch</a>
+<button class="hamb" id="hamb"><span></span><span></span><span></span></button></div>
+</div></header>
+<section class="pagehead"><img class="wm" src="assets/wing-orange.png" alt=""><div class="container reveal">
+<span class="crumb">Credit Application</span><h1>Apply for a credit account.</h1>
+<p>Complete the application below to apply for a commercial credit account with Jopet. It takes a few minutes — you'll review our terms and sign electronically at the end. Once submitted, our accounts team will assess your application and be in touch.</p>
+</div></section>
+<section class="pad"><div class="container capp">
+
+<div class="stepper" id="stepper">
+<div class="st on" data-i="0"><span class="n">1</span> Application</div>
+<div class="st" data-i="1"><span class="n">2</span> Declarations</div>
+<div class="st" data-i="2"><span class="n">3</span> Sign &amp; submit</div>
+</div>
+
+<form id="capp" class="reveal" novalidate>
+<input type="hidden" name="access_key" value="b803b628-cf1d-4138-a515-784fd4e2551e">
+<input type="hidden" name="subject" value="New Credit Application — jopet.com.au">
+<input type="hidden" name="from_name" value="Jopet Group — Credit Application">
+<input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" style="display:none">
+
+<!-- STEP 1 -->
+<div class="step active" data-step="0">
+<fieldset>
+<legend>Business structure</legend>
+<div class="opts" data-req data-group="Business Structure">
+<label><input type="radio" name="Business Structure" value="Pty Ltd / Ltd Company"> Pty Ltd / Ltd Company</label>
+<label><input type="radio" name="Business Structure" value="Trust"> Trust</label>
+<label><input type="radio" name="Business Structure" value="Sole Trader"> Sole Trader</label>
+<label><input type="radio" name="Business Structure" value="Partnership"> Partnership</label>
+<label><input type="radio" name="Business Structure" value="Government"> Government</label>
+</div>
+</fieldset>
+
+<fieldset>
+<legend>Business contact details</legend>
+<div class="grid2">
+<div class="field"><label>Company Name <span class="req">*</span></label><input name="Company Name" data-req></div>
+<div class="field"><label>Trading Name (if applicable)</label><input name="Trading Name"></div>
+<div class="field"><label>ABN <span class="req">*</span></label><input name="ABN" data-req></div>
+<div class="field"><label>ACN</label><input name="ACN"></div>
+</div>
+<div class="grid3">
+<div class="field"><label>Business Address <span class="req">*</span></label><input name="Business Address" data-req></div>
+<div class="field"><label>State <span class="req">*</span></label><input name="Business State" data-req></div>
+<div class="field"><label>Postcode <span class="req">*</span></label><input name="Business Postcode" data-req></div>
+</div>
+<div class="grid2">
+<div class="field"><label>Postal Address</label><input name="Postal Address"></div>
+<div class="field"><label>Phone <span class="req">*</span></label><input name="Phone" data-req></div>
+<div class="field"><label>Accounts Contact <span class="req">*</span></label><input name="Accounts Contact" data-req></div>
+<div class="field"><label>Accounts — Direct Phone</label><input name="Accounts Direct Phone"></div>
+<div class="field"><label>Accounts Email <span class="req">*</span></label><input type="email" name="Accounts Email" data-req></div>
+<div class="field"><label>Maintenance Contact</label><input name="Maintenance Contact"></div>
+<div class="field"><label>Maintenance — Direct Phone</label><input name="Maintenance Direct Phone"></div>
+<div class="field"><label>Works Supervisor</label><input name="Works Supervisor"></div>
+<div class="field"><label>Works Supervisor — Mobile</label><input name="Works Supervisor Mobile"></div>
+</div>
+<div class="field" style="margin-top:8px"><label>Does your company require purchase order(s)?</label>
+<div class="opts"><label><input type="radio" name="Requires Purchase Orders" value="Yes"> Yes</label><label><input type="radio" name="Requires Purchase Orders" value="No"> No</label></div></div>
+</fieldset>
+
+<fieldset>
+<legend>Business history &amp; profile</legend>
+<div class="grid2">
+<div class="field"><label>Date business established <span class="req">*</span></label><input type="date" name="Date Established" data-req></div>
+<div class="field"><label>Years at current address</label><input name="Years at Current Address"></div>
+<div class="field"><label>Annual company revenue (AUD) <span class="req">*</span></label><input name="Annual Company Revenue" data-req placeholder="e.g. 5,000,000"></div>
+<div class="field"><label>Number of employees <span class="req">*</span></label><input name="Number of Employees" data-req placeholder="e.g. 45"></div>
+</div>
+<div class="field" style="margin-top:8px"><label>Business premises</label>
+<div class="opts"><label><input type="radio" name="Business Premises" value="Owned"> Owned</label><label><input type="radio" name="Business Premises" value="Mortgaged"> Mortgaged</label><label><input type="radio" name="Business Premises" value="Leased"> Leased</label><label><input type="radio" name="Business Premises" value="Rented"> Rented</label></div></div>
+<p class="hint">If your business has traded for less than 12 months, please email details of the previous business to admin@jopet.com.au.</p>
+</fieldset>
+
+<fieldset>
+<legend>Directors / Partners / Sole Trader</legend>
+<div id="directors">
+<div class="repeat" data-first="1" style="border-top:none;padding-top:0;margin-top:0">
+<div class="subhead">Director / Partner 1</div>
+<div class="grid3">
+<div class="field"><label>Full Name <span class="req">*</span></label><input name="Director 1 Name" data-req></div>
+<div class="field"><label>Position</label><input name="Director 1 Position"></div>
+<div class="field"><label>Phone / Mobile</label><input name="Director 1 Phone"></div>
+</div>
+<div class="grid3">
+<div class="field"><label>Home Address</label><input name="Director 1 Address"></div>
+<div class="field"><label>State</label><input name="Director 1 State"></div>
+<div class="field"><label>Postcode</label><input name="Director 1 Postcode"></div>
+</div>
+</div>
+</div>
+<button type="button" class="addbtn" id="addDir">+ Add another director / partner</button>
+</fieldset>
+
+<fieldset>
+<legend>Credit reference</legend>
+<div class="grid2">
+<div class="field"><label>Company Name <span class="req">*</span></label><input name="Reference Company" data-req></div>
+<div class="field"><label>Contact Name <span class="req">*</span></label><input name="Reference Contact Name" data-req></div>
+<div class="field"><label>Position</label><input name="Reference Position"></div>
+<div class="field"><label>Phone / Mobile <span class="req">*</span></label><input name="Reference Phone" data-req></div>
+<div class="field"><label>Email</label><input type="email" name="Reference Email"></div>
+</div>
+</fieldset>
+
+<div class="navrow"><span></span><button type="button" class="btn btn-orange" data-next>Continue to declarations →</button></div>
+<p class="err" data-err></p>
+</div>
+
+<!-- STEP 2 -->
+<div class="step" data-step="1">
+<fieldset>
+<legend>Declarations — please read</legend>
+<div class="terms">
+<p>This Credit Application may also require to be read in conjunction with Jopet's Machine Hire Agreement &amp; Hire Agreement Schedule, provided to you prior to the provision of goods and/or services.</p>
+<p>In consideration of the Application for a Commercial Credit Account being approved, I/We hereby declare and agree as follows:</p>
+<ol>
+<li>The information given is true and correct in all respects.</li>
+<li>The Customer and all Guarantors who have provided personal information to Jopet Plant Hire &amp; Diesel Services Pty Ltd (ACN 613 661 555) for the purpose of this Credit Application consent to:
+<ol type="a">
+<li>the provision of information to a Credit Reporting Agency as required under the Privacy Act 1988 (Cth);</li>
+<li>Jopet providing or receiving from other credit providers personal information for the purposes of assessing this application and providing credit references in accordance with the Privacy Act 1988 and any subsequent amendments;</li>
+<li>declaring that they have not been bankrupt and are not currently undergoing insolvency proceedings.</li>
+</ol></li>
+<li>Jopet retains the right and may apply a late payment fee and charge interest if payment is not received by the due date.</li>
+<li>Jopet is indemnified from and against all costs and disbursements incurred in pursuing a debt, including but not limited to legal costs and collection agency costs.</li>
+<li>You agree to be legally bound by the Personal Property Securities Act in the event that goods and/or services are provided by Jopet.</li>
+<li>Title of goods/parts remains the property of Jopet until payment for goods is made in full.</li>
+</ol>
+<h4>Personal Property Securities Act</h4>
+<p>If Jopet determines that this credit application or the Trading Terms (or a transaction in connection with them) is or creates a security interest for the purposes of the Personal Property Securities Act 2009 (Cth) (PPSA), the Applicant agrees upon request to do anything (such as obtaining consents, completing, signing and/or producing documents and supplying information) which Jopet considers necessary to: (a) ensure the security interest is enforceable, perfected and otherwise effective; (b) enable Jopet to apply for any registration or give any notification in connection with the security interest so that it has the priority required by Jopet; and (c) enable Jopet to exercise rights in connection with the security interest.</p>
+<h4>Payment terms</h4>
+<p>Payment terms are strictly 30 days EOM (unless the Customer credit limit is reached prior). Please note that credit limits may impact the payment terms noted above.</p>
+</div>
+<label class="agree" data-agree><input type="checkbox" name="Agreed to Declarations" value="Yes" data-req><span>I/We have read and understand the abovementioned terms and conditions and the Privacy Declaration, and agree to those terms and guarantee the information provided is complete and is a true and correct record.</span></label>
+</fieldset>
+<div class="navrow"><button type="button" class="btn-back" data-back>← Back</button><button type="button" class="btn btn-orange" data-next>Continue to sign →</button></div>
+<p class="err" data-err></p>
+</div>
+
+<!-- STEP 3 -->
+<div class="step" data-step="2">
+<fieldset>
+<legend>Signature — authorised representative</legend>
+<div class="grid3">
+<div class="field"><label>Representative Name <span class="req">*</span></label><input name="Representative Name" data-req></div>
+<div class="field"><label>Position <span class="req">*</span></label><input name="Representative Position" data-req></div>
+<div class="field"><label>Date <span class="req">*</span></label><input type="date" name="Signed Date" data-req></div>
+</div>
+<div class="field" style="margin-top:6px"><label>Type your full name as your electronic signature <span class="req">*</span></label><input name="Signature (typed)" data-req placeholder="Full name = signature"></div>
+<label class="agree" data-agree style="margin-top:16px"><input type="checkbox" name="Authorised Confirmation" value="Yes" data-req><span>I confirm I am authorised to submit this application on behalf of the company, and that typing my name above constitutes my electronic signature.</span></label>
+</fieldset>
+
+<fieldset>
+<legend>Guarantors (if any)</legend>
+<p class="hint" style="margin:0 0 14px">Add any guarantors if applicable. Leave blank if none.</p>
+<div id="guarantors"></div>
+<button type="button" class="addbtn" id="addGua">+ Add guarantor</button>
+</fieldset>
+
+<div class="navrow"><button type="button" class="btn-back" data-back>← Back</button><button type="submit" class="btn btn-orange">Submit application →</button></div>
+<p class="err" data-err></p>
+<p class="muted" id="capp-status" style="font-size:14px;margin-top:14px"></p>
+</div>
+</form>
+</div></section>
+
+<footer><div class="container">
+<div class="foot-top">
+<div class="foot-brand"><img src="assets/logo-group-white.png" alt="Jopet Group">
+<p>An integrated mining and civil services group — equipment, parts and technical services across Papua New Guinea, Australia and the South Pacific.</p></div>
+<div class="foot-col"><h5>Explore</h5>
+<a href="about.html">About</a><a href="services.html">Services</a><a href="fleet.html">Fleet</a>
+<a href="dealerships.html">Dealerships</a><a href="operations.html">Operations</a><a href="png.html">PNG</a><a href="contact.html">Contact</a></div>
+<div class="foot-col"><h5>Contact</h5>
+<a href="mailto:admin@jopet.com.au">admin@jopet.com.au</a><a href="tel:+67573678481">+675 7367 8481</a>
+<span>Port Moresby, PNG</span><span>Brisbane, QLD</span><a href="credit-application.html">Credit Application</a></div>
+</div>
+<div class="regs">
+<span>PNG IPA Registered — <b>#1-131341733</b></span>
+<span><b>Australian</b> Registered Business</span>
+<span><b>Hitachi</b> Authorised Dealer</span>
+<span><b>Volvo Penta</b> Authorised Dealer</span>
+</div>
+<div class="foot-bottom"><span>© 2026 Jopet Group. All rights reserved.</span><span>Australian-owned · PNG-incorporated · A family business</span></div>
+</div></footer>
+<script src="site.js"></script>
+<script>
+(function(){
+ var form=document.getElementById('capp'), steps=[].slice.call(form.querySelectorAll('.step'));
+ var sts=[].slice.call(document.querySelectorAll('#stepper .st')), cur=0;
+ function show(i){cur=i;steps.forEach(function(s,x){s.classList.toggle('active',x===i);});
+   sts.forEach(function(s,x){s.classList.toggle('on',x===i);s.classList.toggle('done',x<i);});
+   window.scrollTo({top:document.querySelector('.stepper').offsetTop-90,behavior:'smooth'});}
+ function validate(step){
+   var ok=true, first=null;
+   step.querySelectorAll('[data-req]').forEach(function(el){
+     el.classList.remove('bad');
+     var group=el.getAttribute('data-group');
+     if(el.classList.contains('opts')){ // radio group wrapper
+       var g=el.querySelector('input'); var nm=g?g.name:null;
+       if(nm && !form.querySelector('input[name="'+nm+'"]:checked')){ok=false;el.classList.add('bad');if(!first)first=el;}
+     } else if(el.type==='checkbox'){
+       if(!el.checked){ok=false;var w=el.closest('[data-agree]');if(w)w.classList.add('bad');if(!first)first=el;}
+     } else {
+       if(!el.value.trim()){ok=false;var f=el.closest('.field');if(f)f.classList.add('bad');if(!first)first=el;}
+     }
+   });
+   var err=step.querySelector('[data-err]');
+   if(err)err.textContent = ok?'' : 'Please complete the highlighted required fields.';
+   if(!ok&&first)first.scrollIntoView({block:'center',behavior:'smooth'});
+   return ok;
+ }
+ form.querySelectorAll('[data-next]').forEach(function(b){b.addEventListener('click',function(){if(validate(steps[cur]))show(cur+1);});});
+ form.querySelectorAll('[data-back]').forEach(function(b){b.addEventListener('click',function(){show(cur-1);});});
+ sts.forEach(function(s){s.addEventListener('click',function(){var i=+s.getAttribute('data-i');if(i<cur)show(i);});});
+
+ // add director (max 3)
+ var dn=1; document.getElementById('addDir').addEventListener('click',function(){
+   if(dn>=3){this.style.display='none';return;} dn++;
+   var d=document.createElement('div');d.className='repeat';
+   d.innerHTML='<button type="button" class="rm">Remove</button><div class="subhead">Director / Partner '+dn+'</div>'+
+     '<div class="grid3"><div class="field"><label>Full Name</label><input name="Director '+dn+' Name"></div>'+
+     '<div class="field"><label>Position</label><input name="Director '+dn+' Position"></div>'+
+     '<div class="field"><label>Phone / Mobile</label><input name="Director '+dn+' Phone"></div></div>'+
+     '<div class="grid3"><div class="field"><label>Home Address</label><input name="Director '+dn+' Address"></div>'+
+     '<div class="field"><label>State</label><input name="Director '+dn+' State"></div>'+
+     '<div class="field"><label>Postcode</label><input name="Director '+dn+' Postcode"></div></div>';
+   document.getElementById('directors').appendChild(d);
+   if(dn>=3)this.style.display='none';
+   d.querySelector('.rm').addEventListener('click',function(){d.remove();dn--;document.getElementById('addDir').style.display='';});
+ });
+ // add guarantor (max 3)
+ var gn=0; document.getElementById('addGua').addEventListener('click',function(){
+   if(gn>=3){return;} gn++;
+   var d=document.createElement('div');d.className='repeat';if(gn===1){d.style.borderTop='none';d.style.paddingTop='0';d.style.marginTop='0';}
+   d.innerHTML='<button type="button" class="rm">Remove</button><div class="subhead">Guarantor '+gn+'</div>'+
+     '<div class="grid3"><div class="field"><label>Full Name</label><input name="Guarantor '+gn+' Name"></div>'+
+     '<div class="field"><label>Position</label><input name="Guarantor '+gn+' Position"></div>'+
+     '<div class="field"><label>Date</label><input type="date" name="Guarantor '+gn+' Date"></div></div>';
+   document.getElementById('guarantors').appendChild(d);
+   if(gn>=3)this.style.display='none';
+   d.querySelector('.rm').addEventListener('click',function(){d.remove();gn--;document.getElementById('addGua').style.display='';});
+ });
+
+ form.addEventListener('submit',function(e){
+   e.preventDefault();
+   if(!validate(steps[0])){show(0);return;}
+   if(!validate(steps[1])){show(1);return;}
+   if(!validate(steps[2]))return;
+   var s=document.getElementById('capp-status');s.style.color='var(--muted)';s.textContent='Submitting your application…';
+   var data=Object.fromEntries(new FormData(form));
+   fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)})
+   .then(function(r){return r.json();}).then(function(j){
+     if(j.success){form.style.display='none';document.getElementById('stepper').style.display='none';
+       s.style.color='#1d7a34';s.style.fontSize='16px';
+       s.innerHTML="<strong>Thank you — your credit application has been submitted.</strong><br>Our accounts team will review it and be in touch. A copy has been sent to admin@jopet.com.au.";
+       s.scrollIntoView({block:'center',behavior:'smooth'});}
+     else{s.style.color='#b00020';s.textContent='Something went wrong: '+(j.message||'please try again, or email admin@jopet.com.au.');}
+   }).catch(function(){s.style.color='#b00020';s.textContent='Network error — please try again, or email admin@jopet.com.au.';});
+ });
+})();
+</script>
+</body></html>

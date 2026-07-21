@@ -246,3 +246,7 @@ footer{background:var(--maroondk);color:#fff;padding:58px 0 28px}
   .deal ul{grid-template-columns:1fr}.pad{padding:64px 0}.cta{padding:38px 24px}
   .fleet-cats{grid-template-columns:1fr}
 }
+
+/* Nav CTA — Credit Application + Get in touch buttons */
+@media(max-width:940px){ .nav-cta{gap:10px} .nav-cta .btn{padding:10px 15px;font-size:11.5px} }
+@media(max-width:560px){ .nav-cta .btn-ghost{display:none} }
