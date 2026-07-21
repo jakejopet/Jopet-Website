@@ -43,6 +43,7 @@ legend{font-family:Archivo,sans-serif;font-weight:800;color:#590E0E;font-size:15
 .agree.bad{border-color:#b00020;background:#fdf3f4}
 .navrow{display:flex;justify-content:space-between;gap:12px;margin-top:26px}
 .btn-back{background:#fff;border:1px solid #ddd3cc;color:#4a423d;border-radius:12px;padding:13px 24px;font:inherit;font-weight:600;cursor:pointer}
+.done-wrap{text-align:center;padding:34px 20px 12px}.done-tick{width:78px;height:78px;border-radius:50%;background:#1b8a4b;display:flex;align-items:center;justify-content:center;margin:0 auto 22px;box-shadow:0 8px 24px rgba(27,138,75,.28)}.done-tick svg{width:40px;height:40px;stroke:#fff;stroke-width:3;fill:none;stroke-linecap:round;stroke-linejoin:round}.done-wrap h2{font-family:Archivo,sans-serif;font-weight:800;color:#590E0E;font-size:30px;margin:0 0 12px}.done-wrap p{color:#5c534d;font-size:16px;max-width:540px;margin:0 auto 26px;line-height:1.65}
 .err{color:#b00020;font-size:13.5px;margin-top:12px;min-height:1px}
 </style>
 </head><body class=""><header id="hdr"><div class="container nav">
@@ -214,6 +215,12 @@ legend{font-family:Archivo,sans-serif;font-weight:800;color:#590E0E;font-size:15
 <p class="muted" id="capp-status" style="font-size:14px;margin-top:14px"></p>
 </div>
 </form>
+<div id="capp-done" class="done-wrap" style="display:none">
+<div class="done-tick"><svg viewBox="0 0 24 24"><path d="M20 6 L9 17 L4 12"/></svg></div>
+<h2>Application submitted</h2>
+<p>Thank you — your credit application has been received. Our accounts team will review it and reach out to you soon. A confirmation has been sent to admin@jopet.com.au.</p>
+<a href="index.html" class="btn btn-primary">Back to home</a>
+</div>
 </div></section>
 
 <footer><div class="container">
@@ -304,9 +311,8 @@ legend{font-family:Archivo,sans-serif;font-weight:800;color:#590E0E;font-size:15
    fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)})
    .then(function(r){return r.json();}).then(function(j){
      if(j.success){form.style.display='none';document.getElementById('stepper').style.display='none';
-       s.style.color='#1d7a34';s.style.fontSize='16px';
-       s.innerHTML="<strong>Thank you — your credit application has been submitted.</strong><br>Our accounts team will review it and be in touch. A copy has been sent to admin@jopet.com.au.";
-       s.scrollIntoView({block:'center',behavior:'smooth'});}
+       var done=document.getElementById('capp-done');done.style.display='block';
+       done.scrollIntoView({block:'center',behavior:'smooth'});}
      else{s.style.color='#b00020';s.textContent='Something went wrong: '+(j.message||'please try again, or email admin@jopet.com.au.');}
    }).catch(function(){s.style.color='#b00020';s.textContent='Network error — please try again, or email admin@jopet.com.au.';});
  });
