@@ -84,6 +84,14 @@ legend{font-family:Archivo,sans-serif;font-weight:800;color:#590E0E;font-size:15
 </fieldset>
 
 <fieldset>
+<legend>Credit requested</legend>
+<div class="grid2">
+<div class="field"><label>Requested credit limit (AUD) <span class="req">*</span></label><input name="Requested Credit Limit" data-req inputmode="numeric" placeholder="e.g. 50,000"></div>
+</div>
+<p class="hint">The credit limit you're applying for. This is subject to assessment and approval — we'll confirm the approved limit in writing.</p>
+</fieldset>
+
+<fieldset>
 <legend>Business contact details</legend>
 <div class="grid2">
 <div class="field"><label>Company Name <span class="req">*</span></label><input name="Company Name" data-req></div>
@@ -301,13 +309,88 @@ legend{font-family:Archivo,sans-serif;font-weight:800;color:#590E0E;font-size:15
    d.querySelector('.rm').addEventListener('click',function(){d.remove();gn--;document.getElementById('addGua').style.display='';});
  });
 
+ // ---------- build a readable, grouped email instead of one long field dump ----------
+ function v(n){var el=form.querySelector('[name="'+n+'"]');if(!el)return '';
+   if(el.type==='radio'){var c=form.querySelector('[name="'+n+'"]:checked');return c?c.value:'';}
+   if(el.type==='checkbox'){return el.checked?(el.value||'Yes'):'';}
+   return (el.value||'').trim();}
+ function money(n){var x=v(n);if(!x)return '';return 'AUD $'+x.replace(/^\s*\$\s*/,'');}
+ function ln(label,n){var x=v(n);return x?label+': '+x+'\n':'';}
+ function dt(n){var x=v(n);if(!x)return '';var m=x.match(/^(\d{4})-(\d{2})-(\d{2})$/);return m?m[3]+'/'+m[2]+'/'+m[1]:x;}
+ function lnd(label,n){var x=dt(n);return x?label+': '+x+'\n':'';}
+ function joinv(){return [].slice.call(arguments).map(v).filter(Boolean).join(', ');}
+ function sec(title,body){return body?title+'\n'+body+'\n':'';}
+ function buildSummary(){
+   var when=new Date().toLocaleString('en-AU',{weekday:'short',day:'2-digit',month:'short',year:'numeric',hour:'numeric',minute:'2-digit'});
+   var RULE='------------------------------------------------------------\n';
+   var o=RULE;
+   o+='CREDIT APPLICATION — '+(v('Company Name')||'New applicant').toUpperCase()+'\n';
+   o+='Requested credit limit: '+(money('Requested Credit Limit')||'not stated')+'\n';
+   o+='Submitted: '+when+'\n';
+   o+=RULE+'\n';
+
+   var b=ln('Structure','Business Structure')+ln('Company Name','Company Name')+ln('Trading Name','Trading Name')+ln('ABN','ABN')+ln('ACN','ACN');
+   var ba=joinv('Business Address','Business State','Business Postcode'); if(ba)b+='Business Address: '+ba+'\n';
+   b+=ln('Postal Address','Postal Address')+ln('Phone','Phone')+ln('Requires Purchase Orders','Requires Purchase Orders');
+   o+=sec('BUSINESS DETAILS',b);
+
+   o+=sec('CONTACTS',ln('Accounts Contact','Accounts Contact')+ln('Accounts Direct Phone','Accounts Direct Phone')+ln('Accounts Email','Accounts Email')
+     +ln('Maintenance Contact','Maintenance Contact')+ln('Maintenance Direct Phone','Maintenance Direct Phone')
+     +ln('Works Supervisor','Works Supervisor')+ln('Works Supervisor Mobile','Works Supervisor Mobile'));
+
+   var h=lnd('Date Established','Date Established')+ln('Years at Current Address','Years at Current Address');
+   var rev=v('Annual Company Revenue'); if(rev)h+='Annual Revenue: AUD $'+rev.replace(/^\s*\$\s*/,'')+'\n';
+   h+=ln('Employees','Number of Employees')+ln('Premises','Business Premises');
+   o+=sec('BUSINESS HISTORY & PROFILE',h);
+
+   var d='';
+   for(var i=1;i<=3;i++){ if(!v('Director '+i+' Name'))continue;
+     d+=(d?'\n':'')+'Director / Partner '+i+'\n'+'  Name: '+v('Director '+i+' Name')+'\n';
+     if(v('Director '+i+' Position'))d+='  Position: '+v('Director '+i+' Position')+'\n';
+     if(v('Director '+i+' Phone'))d+='  Phone: '+v('Director '+i+' Phone')+'\n';
+     var da=joinv('Director '+i+' Address','Director '+i+' State','Director '+i+' Postcode');
+     if(da)d+='  Address: '+da+'\n';
+   }
+   o+=sec('DIRECTORS / PARTNERS',d);
+
+   o+=sec('CREDIT REFERENCE',ln('Company','Reference Company')+ln('Contact','Reference Contact Name')
+     +ln('Position','Reference Position')+ln('Phone','Reference Phone')+ln('Email','Reference Email'));
+
+   var g='';
+   for(var k=1;k<=3;k++){ if(!v('Guarantor '+k+' Name'))continue;
+     g+=(g?'\n':'')+'Guarantor '+k+'\n'+'  Name: '+v('Guarantor '+k+' Name')+'\n';
+     if(v('Guarantor '+k+' Position'))g+='  Position: '+v('Guarantor '+k+' Position')+'\n';
+     if(v('Guarantor '+k+' Date'))g+='  Date: '+dt('Guarantor '+k+' Date')+'\n';
+   }
+   o+=sec('GUARANTORS',g);
+
+   var sg=ln('Representative','Representative Name')+ln('Position','Representative Position')
+     +ln('Electronic Signature','Signature (typed)')+lnd('Date Signed','Signed Date');
+   sg+='Declarations accepted: '+(v('Agreed to Declarations')?'Yes':'No')+'\n';
+   sg+='Authorised to submit: '+(v('Authorised Confirmation')?'Yes':'No')+'\n';
+   o+=sec('SIGNATURE & DECLARATIONS',sg);
+
+   return o+'\n'+RULE+'Submitted via the credit application form at jopet.com.au\n';
+ }
+
  form.addEventListener('submit',function(e){
    e.preventDefault();
    if(!validate(steps[0])){show(0);return;}
    if(!validate(steps[1])){show(1);return;}
    if(!validate(steps[2]))return;
    var s=document.getElementById('capp-status');s.style.color='var(--muted)';s.textContent='Submitting your application…';
-   var data=Object.fromEntries(new FormData(form));
+   var data={
+     access_key:v('access_key'),
+     subject:'Credit Application — '+(v('Company Name')||'New applicant')+(money('Requested Credit Limit')?' — '+money('Requested Credit Limit'):''),
+     from_name:'Jopet Group — Credit Application',
+     replyto:v('Accounts Email'),
+     'Company':v('Company Name'),
+     'Requested Credit Limit':money('Requested Credit Limit')||'Not stated',
+     'Accounts Contact':v('Accounts Contact'),
+     'Accounts Email':v('Accounts Email'),
+     'Phone':v('Phone'),
+     message:buildSummary()
+   };
    fetch('https://api.web3forms.com/submit',{method:'POST',headers:{'Content-Type':'application/json',Accept:'application/json'},body:JSON.stringify(data)})
    .then(function(r){return r.json();}).then(function(j){
      if(j.success){form.style.display='none';document.getElementById('stepper').style.display='none';
